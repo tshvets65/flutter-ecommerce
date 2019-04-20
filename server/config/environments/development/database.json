@@ -1,0 +1,19 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "strapi-hook-mongoose",
+      "settings": {
+        "client": "mongo",
+        "host": "ds139576.mlab.com",
+        "port": "39576",
+        "database": "flutter-ecommerce",
+        "username": "testuser",
+        "password": "password123"
+      },
+      "options": {
+        "authenticationDatabase": "flutter-ecommerce"
+      }
+    }
+  }
+}
