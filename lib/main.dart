@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter E-Commerce',
         routes: {
-          '/products': (BuildContext context) => ProductsPage(onInit: () {
+          '/': (BuildContext context) => ProductsPage(onInit: () {
                 StoreProvider.of<AppState>(context).dispatch(getUserAction);
                 StoreProvider.of<AppState>(context).dispatch(getProductsAction);
               }),
@@ -48,7 +48,6 @@ class MyApp extends StatelessWidget {
                     TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
                 title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
                 body1: TextStyle(fontSize: 18.0))),
-        home: RegisterPage(),
       ),
     );
   }
