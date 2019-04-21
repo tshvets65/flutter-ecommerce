@@ -44,7 +44,11 @@ class ProductsPageState extends State<ProductsPage> {
         builder: (context, state) {
           return AppBar(
             centerTitle: true,
-            leading: state.user != null ? Icon(Icons.store) : Text(''),
+            leading: state.user != null
+                ? IconButton(
+                    icon: Icon(Icons.store),
+                    onPressed: () => Navigator.pushNamed(context, '/cart'))
+                : Text(''),
             title: SizedBox(
               child: state.user != null
                   ? Text(state.user.username)

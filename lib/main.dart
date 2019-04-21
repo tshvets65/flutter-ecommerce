@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/models/app_state.dart';
+import 'package:flutter_ecommerce/pages/cart_page.dart';
 import 'package:flutter_ecommerce/redux/actions.dart';
 import 'package:flutter_ecommerce/redux/reducers.dart';
 import 'package:flutter_ecommerce/pages/login_page.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
               }),
           '/login': (BuildContext context) => LoginPage(),
           '/register': (BuildContext context) => RegisterPage(),
+          '/cart': (BuildContext context) => CartPage(),
         },
         theme: ThemeData(
             brightness: Brightness.dark,
