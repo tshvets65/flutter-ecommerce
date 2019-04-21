@@ -112,6 +112,7 @@ class RegisterPageState extends State<RegisterPage> {
       _storeUserData(responseData);
       _showSuccessSnack();
       _redirectUser();
+      print(responseData);
     } else {
       setState(() => _isSubmitting = false);
       final String errorMsg = responseData['message'];
@@ -138,11 +139,11 @@ class RegisterPageState extends State<RegisterPage> {
     final snackbar =
         SnackBar(content: Text(errorMsg, style: TextStyle(color: Colors.red)));
     _scaffoldKey.currentState.showSnackBar(snackbar);
-    //throw Exception('Error registering: $errorMsg');
+    throw Exception('Error registering: $errorMsg');
   }
 
   void _redirectUser() {
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, '/');
     });
   }

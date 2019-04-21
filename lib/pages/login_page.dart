@@ -98,6 +98,7 @@ class LoginPageState extends State<LoginPage> {
       _storeUserData(responseData);
       _showSuccessSnack();
       _redirectUser();
+      print(responseData);
     } else {
       setState(() => _isSubmitting = false);
       final String errorMsg = responseData['message'];
@@ -128,7 +129,7 @@ class LoginPageState extends State<LoginPage> {
   }
 
   void _redirectUser() {
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, '/');
     });
   }
