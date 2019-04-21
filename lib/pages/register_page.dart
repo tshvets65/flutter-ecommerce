@@ -112,7 +112,6 @@ class RegisterPageState extends State<RegisterPage> {
       _storeUserData(responseData);
       _showSuccessSnack();
       _redirectUser();
-      print(responseData);
     } else {
       setState(() => _isSubmitting = false);
       final String errorMsg = responseData['message'];
@@ -143,7 +142,7 @@ class RegisterPageState extends State<RegisterPage> {
   }
 
   void _redirectUser() {
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 1), () {
       Navigator.pushReplacementNamed(context, '/products');
     });
   }

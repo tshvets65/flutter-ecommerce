@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/models/app_state.dart';
+import 'package:flutter_ecommerce/redux/actions.dart';
 import 'package:flutter_ecommerce/redux/reducers.dart';
 import 'package:flutter_ecommerce/pages/login_page.dart';
 import 'package:flutter_ecommerce/pages/products_page.dart';
@@ -24,7 +25,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter E-Commerce',
         routes: {
-          '/products': (BuildContext context) => ProductsPage(),
+          '/products': (BuildContext context) => ProductsPage(onInit: () {
+                StoreProvider.of<AppState>(context).dispatch(getUserAction);
+                StoreProvider.of<AppState>(context).dispatch(getProductsAction);
+              }),
           '/login': (BuildContext context) => LoginPage(),
           '/register': (BuildContext context) => RegisterPage(),
         },
