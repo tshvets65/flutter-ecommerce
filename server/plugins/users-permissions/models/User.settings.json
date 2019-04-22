@@ -56,6 +56,14 @@
     "cart_id": {
       "default": "",
       "type": "string"
+    },
+    "customer_id": {
+      "default": "",
+      "type": "string"
+    },
+    "card_token": {
+      "default": "",
+      "type": "string"
     }
   },
   "collectionName": "users-permissions_user"

@@ -1,6 +1,7 @@
 'use strict';
 
 const axios = require('axios');
+const stripe = require('stripe')('sk_test_BOr18UuvTDRzH0MVad0HQKpR');
 
 /**
  * Lifecycle callbacks for the `User` model.
@@ -34,7 +35,11 @@ module.exports = {
   // Fired before `insert` query.
   beforeCreate: async (model) => {
     const cart = await axios.post('http://localhost:1337/carts');
+    const customer = await stripe.customers.create({
+      email: model.get('email')
+    });
     model.set('cart_id', cart.data.id);
+    model.set('customer_id', customer.id);
   },
 
   // After creating a value.

@@ -2,20 +2,33 @@ PODS:
   - Flutter (1.0.0)
   - shared_preferences (0.0.1):
     - Flutter
+  - Stripe (11.5.0)
+  - stripe_payment (0.0.1):
+    - Flutter
+    - Stripe
 
 DEPENDENCIES:
   - Flutter (from `.symlinks/flutter/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - stripe_payment (from `.symlinks/plugins/stripe_payment/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Stripe
 
 EXTERNAL SOURCES:
   Flutter:
     :path: ".symlinks/flutter/ios"
   shared_preferences:
     :path: ".symlinks/plugins/shared_preferences/ios"
+  stripe_payment:
+    :path: ".symlinks/plugins/stripe_payment/ios"
 
 SPEC CHECKSUMS:
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
   shared_preferences: 1feebfa37bb57264736e16865e7ffae7fc99b523
+  Stripe: 10761682d20dc491c52287393c800db056c9748d
+  stripe_payment: bdd1575a69e8a74822e1febb3fd02192ff371c5a
 
 PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
 

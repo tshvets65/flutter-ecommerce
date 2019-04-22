@@ -116,3 +116,55 @@ class GetCartProductsAction {
 
   GetCartProductsAction(this._cartProducts);
 }
+
+/* Cards Actions */
+ThunkAction<AppState> getCardsAction = (Store<AppState> store) async {
+  final String customerId = store.state.user.customerId;
+  http.Response response =
+      await http.get('http://localhost:1337/card?$customerId');
+  final responseData = json.decode(response.body);
+  // print('Card Data: $responseData');
+  store.dispatch(GetCardsAction(responseData));
+};
+
+class GetCardsAction {
+  List<dynamic> _cards;
+
+  List<dynamic> get cards => this._cards;
+
+  GetCardsAction(this._cards);
+}
+
+class AddCardAction {
+  final dynamic _card;
+
+  dynamic get card => this._card;
+
+  AddCardAction(this._card);
+}
+
+/* Card Token Actions */
+ThunkAction<AppState> getCardTokenAction = (Store<AppState> store) async {
+  final String jwt = store.state.user.jwt;
+  http.Response response = await http.get('http://localhost:1337/users/me',
+      headers: {'Authorization': 'Bearer $jwt'});
+  final responseData = json.decode(response.body);
+  final String cardToken = responseData['card_token'];
+  store.dispatch(GetCardTokenAction(cardToken));
+};
+
+class UpdateCardTokenAction {
+  final String _cardToken;
+
+  String get cardToken => this._cardToken;
+
+  UpdateCardTokenAction(this._cardToken);
+}
+
+class GetCardTokenAction {
+  final String _cardToken;
+
+  String get cardToken => this._cardToken;
+
+  GetCardTokenAction(this._cardToken);
+}
